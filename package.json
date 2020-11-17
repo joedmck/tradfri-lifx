@@ -1,0 +1,27 @@
+{
+  "name": "tradfri-lifx",
+  "version": "0.1.0",
+  "description": "A tool to hook IKEA TRÅDFRI switches to LIFX lights.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/main.js"
+  },
+  "keywords": [
+    "LIFX",
+    "Tradfri",
+    "TRÅDFRI",
+    "IKEA",
+    "Home Automation",
+    "Zigbee",
+    "CC2531",
+    "CC253x",
+    "Smart Home"
+  ],
+  "author": "Joe M",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-lifx-lan": "^0.4.3",
+    "zigbee-herdsman": "^0.13.29"
+  }
+}

@@ -1,0 +1,22 @@
+FROM %%BASE_IMAGE%% as builder
+
+RUN apk add --no-cache --quiet python2 make g++ linux-headers udev
+
+WORKDIR /build
+
+COPY package*.json ./
+
+RUN npm --loglevel=error --no-update-notifier install
+
+FROM %%BASE_IMAGE%%
+
+WORKDIR /app
+
+COPY --from=builder /build/ ./
+
+COPY src ./src
+
+ENV TRADFRI_LIFX_DONGLE=/dev/ttyACM0
+ENV TRADFRI_LIFX_DB_PATH=/app/db/zigbee.db
+
+CMD ["npm", "start"]

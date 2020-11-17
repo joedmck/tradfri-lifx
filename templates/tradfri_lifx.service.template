@@ -1,0 +1,14 @@
+[Unit]
+Description=A tool to control LIFX lights with IKEA TRÅDFRI switches.
+Documentation=https://github.com/joedmck/tradfri-lifx
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=%%WORKDIR%%
+ExecStart=npm start
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
